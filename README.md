@@ -1,3 +1,3 @@
-#FaceBook_Hacker_Cup_2023
+# FaceBook_Hacker_Cup_2023
 
 Cpp solution to FaceBook_Hacker_Cup_2023 .
