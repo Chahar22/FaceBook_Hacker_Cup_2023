@@ -14,21 +14,21 @@ using namespace std;
 
 void solve(int test)
 {
-    int s,d,k;
-    cin>>s>>d>>k;
-    
-    int Cheese_Patty =  s + 2*d;
+    int s, d, k;
+    cin >> s >> d >> k;
 
-    int Buns = 2*(s+d);
+    int Cheese_Patty = s + 2 * d;
+
+    int Buns = 2 * (s + d);
 
     int Cheese_Patty_Needed = k;
-    int Buns_Needed = k+1;
-   // cout << Cheese_Patty << Buns << Cheese_Patty_Needed << Buns_Needed;
-     if (Cheese_Patty >= Cheese_Patty_Needed && Buns >= Buns_Needed) cout
-         << "Case #" << test << ": YES" << endl;
+    int Buns_Needed = k + 1;
+    // cout << Cheese_Patty << Buns << Cheese_Patty_Needed << Buns_Needed;
+    if (Cheese_Patty >= Cheese_Patty_Needed && Buns >= Buns_Needed)
+        cout
+            << "Case #" << test << ": YES" << endl;
     else
-          cout << "Case #" << test << ": NO" << endl;
-
+        cout << "Case #" << test << ": NO" << endl;
 }
 
 int main()
