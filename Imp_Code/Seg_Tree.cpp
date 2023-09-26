@@ -8,6 +8,7 @@ using namespace std;
 
 // https://codeforces.com/contest/1878/problem/E
 
+// Watch https://www.youtube.com/watch?v=-dUiRtJ8ot0&ab_channel=takeUforward for clearing concept.
 
 int a[200005], seg[4 * 200005];
 
