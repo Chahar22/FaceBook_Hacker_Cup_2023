@@ -1,5 +1,6 @@
 #include <iostream>
 #include <vector>
+#include <algorithm>
 
 #define ll long long int
 #define vi vector<ll>
@@ -14,21 +15,82 @@ using namespace std;
 
 void solve(int test)
 {
-    int s,d,k;
-    cin>>s>>d>>k;
-    
-    int Cheese_Patty =  s + 2*d;
+    int n;
+    cin >> n;
+    vector<int> a(2 * n - 1, 0);
 
-    int Buns = 2*(s+d);
+    for (int i = 0; i < 2 * n - 1; i++)
+    {
+        cin >> a[i];
+    }
 
-    int Cheese_Patty_Needed = k;
-    int Buns_Needed = k+1;
-   // cout << Cheese_Patty << Buns << Cheese_Patty_Needed << Buns_Needed;
-     if (Cheese_Patty >= Cheese_Patty_Needed && Buns >= Buns_Needed) cout
-         << "Case #" << test << ": YES" << endl;
-    else
-          cout << "Case #" << test << ": NO" << endl;
+    sort(a.begin(), a.end());
 
+    vector<int> save;
+
+    int l = 0, r = 2 * n - 2;
+    int sum = a[l] + a[r];
+    while (l < r)
+    {
+        if (sum == a[l] + a[r])
+        {
+            l++;
+            r--;
+        }
+        else if (sum > a[l] + a[r])
+        {
+            save.push_back(a[l]);
+            l++;
+        }
+        else
+        {
+            save.push_back(a[r]);
+            r--;
+        }
+    }
+    if (save.size() >= 2)
+    {
+        save.clear();
+
+        l = 1, r = 2 * n - 2;
+        sum = a[l] + a[r];
+        while (l < r)
+        {
+            if (sum == a[l] + a[r])
+            {
+                l++;
+                r--;
+            }
+            else if (sum > a[l] + a[r])
+            {
+                save.push_back(a[l]);
+                l++;
+            }
+            else
+            {
+                save.push_back(a[r]);
+                r--;
+            }
+        }
+
+        if (save.size() == 0)
+        {
+            cout << "Case #" << test << ": " << sum - a[0] << endl;
+        }
+        else
+        {
+            cout << "Case #" << test << ": " << -1 << endl;
+        }
+        return;
+    }
+
+    if (save.size() == 0)
+    {
+        cout << "Case #" << test << ": " << sum - a[l] << endl;
+        return;
+    }
+
+    cout << "Case #" << test << ": " << sum - save[0] << endl;
 }
 
 int main()
